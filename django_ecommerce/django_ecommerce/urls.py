@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-admin.autodiscover()
+from users import views as users_views
+from contact import views as contact_views
 
 urlpatterns = [
     path("", include("main.urls")),
     path('admin/', admin.site.urls),
     path("pages/", include("django.contrib.flatpages.urls")),
-    path("contact/", include("contact.urls")),
+    path("contact/", contact_views.contact, name="contact"),
+    path("sign_in/", users_views.sign_in, name="sign_in"),
+    path("sign_out/", users_views.sign_out, name="sign_out"),
+    path("register/", users_views.register, name="register"),
+    path("edit/", users_views.edit, name="edit"),
 ]
