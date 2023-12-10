@@ -14,5 +14,5 @@ def index(request):
         return render(
             request,
             "user.html",
-            {"user": User.objects.get(pk=uid)}
+            {"user": User.get_by_id(uid=uid)}
         )

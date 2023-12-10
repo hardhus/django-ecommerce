@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("pages/", include("django.contrib.flatpages.urls")),
     path("contact/", contact_views.contact, name="contact"),
+    
+    # user registration/authentication
     path("sign_in/", users_views.sign_in, name="sign_in"),
     path("sign_out/", users_views.sign_out, name="sign_out"),
     path("register/", users_views.register, name="register"),
