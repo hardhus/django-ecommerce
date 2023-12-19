@@ -49,24 +49,23 @@ def register(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            user = User(
-                name=form.cleaned_data["name"],
-                email=form.cleaned_data["email"],
-            )
-            
-            # ensure encrypted password
-            user.set_password(form.cleaned_data["password"])
-
             try:
-                user.save()
+                cd = form.cleaned_data
+                user = User.create(
+                    cd["name"],
+                    cd["email"],
+                    cd["password"],
+                )
             except IntegrityError:
-                form.addError(user.email + " is already a member")
+                form.addError(cd["email"] + " is already a member")
             else:
                 request.session["user"] = user.pk
                 return redirect("/")
     else:
         form = UserForm()
     
+    
+    # TODO buradaki months ve years stripe olmadığından gereksiz mi acaba?
     return render(
         request,
         "register.html",
