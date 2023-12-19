@@ -5,6 +5,7 @@ from .views import index
 from users.models import User
 import mock
 
+# TotalTest 4
 
 class MainPageTests(TestCase):
 
@@ -54,22 +55,3 @@ class MainPageTests(TestCase):
             self.request.session = {}
             expected_html = render(self.request, "user.html", {"user": user}).content
             self.assertEquals(resp.content, expected_html)
-        # # Create the user needed for user lookup from index page
-        # user = User(
-        #     name="jj",
-        #     email="j@j.com",
-        # )
-        # user.save()
-
-        # self.request.session = {"user": "1"}
-
-        # # Request the index page
-        # resp = index(self.request)
-
-        # # ensure we return the state of the session back to normal so
-        # # we don't affect other tests
-        # self.request.session = {}
-
-        # # Verify it returns the page for the logged in user
-        # expected_html = render(self.request, "user.html", {"user": User.get_by_id(uid="1")}).content
-        # self.assertEquals(resp.content, expected_html)
