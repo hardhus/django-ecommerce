@@ -14,6 +14,16 @@ class User(AbstractBaseUser):
     @classmethod
     def get_by_id(cls, uid):
         return User.objects.get(pk=uid)
+    
+    @classmethod
+    def create(cls, name, email, password):
+        new_user = cls(
+            name=name,
+            email=email,
+        )
+        new_user.set_password(password)
+        new_user.save()
+        return new_user
 
     def __str__(self) -> str:
         return self.email
