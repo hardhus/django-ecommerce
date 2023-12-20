@@ -1,11 +1,10 @@
 from django.test import TestCase, RequestFactory
 from django.urls import resolve
 from django.shortcuts import render
-from .views import index
+from main.views import index
 from users.models import User
 import mock
 
-# TotalTest 4
 
 class MainPageTests(TestCase):
 
@@ -15,7 +14,8 @@ class MainPageTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        cls.cls_atomics = cls._enter_atomics()
+        super(MainPageTests, cls).setUpClass()
+        # cls.cls_atomics = cls._enter_atomics()
         request_factory = RequestFactory()
         cls.request = request_factory.get("/")
         cls.request.session = {}
@@ -55,3 +55,6 @@ class MainPageTests(TestCase):
             self.request.session = {}
             expected_html = render(self.request, "user.html", {"user": user}).content
             self.assertEquals(resp.content, expected_html)
+
+
+# TotalTest 4
