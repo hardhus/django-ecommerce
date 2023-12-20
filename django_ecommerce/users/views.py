@@ -57,6 +57,7 @@ def register(request):
                     cd["password"],
                 )
             except IntegrityError:
+                print(form.cleaned_data)
                 form.addError(cd["email"] + " is already a member")
             else:
                 request.session["user"] = user.pk
@@ -66,6 +67,7 @@ def register(request):
     
     
     # TODO buradaki months ve years stripe olmadığından gereksiz mi acaba?
+    # evet gereksiz
     return render(
         request,
         "register.html",
