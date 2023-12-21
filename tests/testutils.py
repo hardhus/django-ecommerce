@@ -1,3 +1,4 @@
+# Şeyma ⁤‍⁤⁢⁣‌⁡‍‌⁢‍⁢‍⁣‍⁡‌‍⁢⁡⁢‌⁡‍⁢⁣⁡‌‌⁢‍⁡‌⁢‍⁡‍⁡‌⁣⁡⁢‌⁤⁣‌‍‌⁢‌‌⁡⁢‍‍⁢‍⁢‍⁡‍⁤⁤‌⁡‍⁡‍⁤⁤⁡‌‌‍‍‌‌‍‍⁢⁡⁢‍‍‌⁤Nerede?
 class FormTesterMixin():
     def should_have_form_error(self, form_cls, expected_error_name, expected_error_msg, data):
         from pprint import pformat
