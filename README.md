@@ -1,1 +1,3 @@
 # django-ecommerce
+
+### Use **PostgreSQL**
