@@ -28,27 +28,27 @@
 
     <div class="navbar-wrapper">
 
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="container" max-width: 960px;>
-                <header class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'home' %}">Mos Eisley's Cantina</a>
-                </header>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="/pages/about">About</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-static-top" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">Mos Eisley's Cantina</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                        <li class="nav-item active "><a class="nav-link" href="/pages/about">About</a></li>
+                        <li class="nav-item active "><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                    <ul class="navbar-nav">
                         {% if user %}
-                        <li><a href="{% url 'sign_out' %}">Logout</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'sign_out' %}">Logout</a></li>
                         {% else %}
-                        <li><a href="{% url 'sign_in' %}">Login</a></li>
-                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'sign_in' %}">Login</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
                         {% endif %}
                     </ul>
                 </div>
