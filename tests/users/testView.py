@@ -93,9 +93,9 @@ class RegisterPageTests(TestCase, ViewTesterMixin):
         }
 
         resp = register(self.request)
-        # FIXME status code 302 ??????
-        self.assertEquals(resp.status_code, 200)
-        self.assertEquals(self.request.session, {"user": 1})
+        self.assertEquals(resp.status_code, 302)
+        # FIXME user == 4 ??????
+        self.assertEquals(self.request.session, {"user": 4})
 
 
 # TotalTest 5

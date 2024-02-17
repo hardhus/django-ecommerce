@@ -9,6 +9,7 @@ def index(request):
         return render(
         request,
         "index.html",
+        {"user": False}
         )
     else:
         return render(
