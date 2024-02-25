@@ -1,8 +1,13 @@
 {% load static %}
+{% load main_gravatar %}
 
 <section class="info-box" id="user_info">
     <h1>Jedi Badge</h1>
-    <img src="{% static 'img/yoda.jpg' %}" alt="user.avatar" width="140" height="140" class="rounded-circle ">
+    <img class="rounded-circle"
+        src="http://www.gravatar.com/avatar/18308d43e40fe649cf29047f0ad684c0?s=140&d=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F9%2F9b%2FYoda_Empire_Strikes_Back.png"
+        height="140" width="140" alt="user.avatar" />
+    <br>
+    {% gravatar_img user.email %}
     <ul>
         <li>Rank: {{ user.rank }}</li>
         <li>Name: {{ user.name }}</li>
