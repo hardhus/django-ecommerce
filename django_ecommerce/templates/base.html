@@ -10,7 +10,7 @@
     <title>Mos Eisley's Cantina</title>
 
     <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- custom styles -->
     <link href="{% static 'css/mec.css' %}" rel="stylesheet">
     {% block extra_css %}
@@ -26,29 +26,44 @@
 
 <body>
 
+    <!-- NAVBAR ========================================== -->
     <div class="navbar-wrapper">
 
-        <nav class="navbar navbar-dark navbar-expand-lg bg-dark navbar-static-top" role="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'home' %}">Mos Eisley's Cantina</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <header class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'home' %}">Mos Eisley's Cantina</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </header>
 
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                        <li class="nav-item active "><a class="nav-link" href="/pages/about">About</a></li>
-                        <li class="nav-item active "><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-brand1" href="/pages/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        </li>
                     </ul>
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ml-auto">
                         {% if user %}
-                        <li class="nav-item active"><a class="nav-link" href="{% url 'sign_out' %}">Logout</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'sign_out' %}">Logout</a>
+                        </li>
                         {% else %}
-                        <li class="nav-item active"><a class="nav-link" href="{% url 'sign_in' %}">Login</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'sign_in' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
                         {% endif %}
                     </ul>
                 </div>
@@ -64,13 +79,13 @@
 
         <hr class="featurette-divider">
 
-        <footer>
-            <p class="pull-right"><a href="/#">Back to top</a></p>
-            <p class="pull-left">&copy; 2014 <a href="http://realpython.com">The Jedi Council</a></p>
-            <p class="text-center"> &middot; Powered by about 37 AT-AT Walkers, Python 3 and Django 1.7 &middot; </p>
-        </footer>
-
     </div>
+
+    <footer class="container-fluid bg-secondary ">
+        <p class="pull-right"><a href="/#">Back to top</a></p>
+        <p class="pull-left">&copy; 2014 <a href="http://realpython.com">The Jedi Council</a></p>
+        <p class="text-center"> &middot; Powered by about 37 AT-AT Walkers, Python 3 and Django 1.7 &middot; </p>
+    </footer>
 
 
 
@@ -82,10 +97,13 @@
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{% static 'js/bootstrap/jquery-1.11.1.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap/application.js' %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/application.js' %}"></script>
 </body>
 
 </html>
