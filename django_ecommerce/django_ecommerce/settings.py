@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "main",
     "contact",
     "users",
+    "djangular_pools",
 ]
 
 SITE_ID = 1
