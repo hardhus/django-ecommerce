@@ -47,8 +47,8 @@ class MainPageTests(TestCase):
     # ŞEYMA
     # def test_index_handles_logged_in_user(self):
     #     user = User(
-    #         name="JJ",
-    #         email="j@j.com",
+    #         name="ŞEYMA",
+    #         email="şeyma@nerede.com",
     #     )
     #     self.request.session = {"user": "1"}
     #     with mock.patch("main.views.User.get_by_id") as get_mock:

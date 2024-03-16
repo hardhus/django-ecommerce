@@ -14,7 +14,7 @@ class StatusReportSerializer_Tests(TestCase):
     def setUpTestData(cls) -> None:
         super().setUpTestData()
 
-        cls.u = User(name="test", email="test@test.com")
+        cls.u = User(name="ŞEYMA", email="şeyma@nerede.com")
         cls.u.save()
 
         cls.new_status = StatusReport(user=cls.u, status="ŞEYMA NEREDE?")
