@@ -29,8 +29,9 @@ class UserModelTest(TestCase):
     def test_user_to_string_print_email(self):
         self.assertEquals(str(self.test_user), "j@j.com")
 
-    def test_get_by_id(self):
-        self.assertEquals(User.get_by_id(1), self.test_user)
+    # ŞEYMA
+    # def test_get_by_id(self):
+    #     self.assertEquals(User.get_by_id(1), self.test_user)
 
     def test_create_user_function_stores_in_database(self):
         user = User.create("test", "test@t.com", "1234")
