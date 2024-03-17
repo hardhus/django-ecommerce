@@ -19,6 +19,11 @@ from users import views as users_views
 from contact import views as contact_views
 from main import views as main_views
 
+from main.urls import urlpatterns as main_urlpatterns
+from djangular_pools.urls import urlpatterns as djangular_pools_urlpatterns
+
+main_urlpatterns.extend(djangular_pools_urlpatterns)
+
 urlpatterns = [
     path("", main_views.index, name="home"),
     path('admin/', admin.site.urls),

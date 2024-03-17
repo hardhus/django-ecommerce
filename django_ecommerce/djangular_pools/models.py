@@ -8,7 +8,7 @@ class Poll(models.Model):
     def pool_items(self):
         return self.poolitem_set.all()
 
-class PoolItem(models.Model):
+class PollItem(models.Model):
     poll = models.ForeignKey(Poll, related_name="items", on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     text = models.CharField(max_length=300)
