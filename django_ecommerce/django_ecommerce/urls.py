@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("pages/", include("django.contrib.flatpages.urls")),
     path("contact/", contact_views.contact, name="contact"),
+    path("report/", main_views.report, name="report"),
     
     # user registration/authentication
     path("sign_in/", users_views.sign_in, name="sign_in"),
