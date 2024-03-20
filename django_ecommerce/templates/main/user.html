@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "__base.html" %}
 {% load static %}
 {% block content %}
 
@@ -9,6 +9,7 @@
     <div class="row member-page">
         <div class="col-sm-8">
             <div class="row">
+                {% include "main/_announcements.html" %}
                 {% include "main/_lateststatus.html" %}
             </div>
         </div>
@@ -22,9 +23,5 @@
     </div>
 </div>
 {% endblock %}
-
 {% block extrajs %}
-
-<script src="{% static 'js/userPollCtrl.js' %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" type="text/javascript"></script>
 {% endblock extrajs %}

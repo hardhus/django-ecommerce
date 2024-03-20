@@ -19,6 +19,6 @@ def contact(request):
         form = ContactView()
     return render(
         request,
-        "contact.html",
+        "contact/contact.html",
         {"form": form,},
     )
