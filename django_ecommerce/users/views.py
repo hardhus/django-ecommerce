@@ -73,7 +73,7 @@ def register(request):
     # evet gereksiz
     return render(
         request,
-        "register.html",
+        "users/register.html",
         {
             "form": form,
             "user": user,
@@ -97,7 +97,7 @@ def edit(request):
 
     return render(
         request,
-        'edit.html',
+        'users/edit.html',
         {
             'form': form,
             "user": user,

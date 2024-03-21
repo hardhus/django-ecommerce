@@ -1,3 +1,11 @@
+var mecApp = angular.module("mecApp", []);
+
+mecApp.config(function ($interpolateProvider, $httpProvider) {
+    $interpolateProvider.startSymbol("[[").endSymbol("]]");
+    $httpProvider.defaults.xsrfCookieName = "csrftoken";
+    $httpProvider.defaults.xsrfHeaderName = "X-CSRFToken";
+});
+
 $(function () {
     $("#user_form").submit(function () {
         if ($("#credit-card").is(":visible")) {

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     
     # Third Party Apps
     "rest_framework",
+    "embed_video",
     
     
     # Local Apps
@@ -154,3 +155,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = "users.User"

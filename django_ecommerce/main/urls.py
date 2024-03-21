@@ -7,6 +7,4 @@ urlpatterns = [
     path("status_reports/<int:pk>/", json_views.StatusMember.as_view()),
     path("badges/", json_views.BadgeCollection.as_view(), name="badges_collection"),
     path("badges/<int:pk>/", json_views.BadgeMember.as_view()),
-    path("api-auth/", include('rest_framework.urls', namespace='rest_framework')),
-    path("", "api_root"),
 ]

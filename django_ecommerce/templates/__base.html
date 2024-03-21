@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mecApp">
 
 <head>
     <meta charset="utf-8">
@@ -11,8 +11,10 @@
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- custom styles -->
     <link href="{% static 'css/mec.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     {% block extra_css %}
     {% endblock %}
 
@@ -105,6 +107,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{% static 'js/application.js' %}"></script>
+    <script src="{% static 'js/userPollCtrl.js' %}"></script>
+    <script src="{% static 'js/loggedInCtrl.js' %}"></script>
     {% block extrajs %}
     {% endblock %}
 </body>
