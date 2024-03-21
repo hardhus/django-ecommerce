@@ -42,7 +42,7 @@ class PollItemCollection(
     generics.GenericAPIView
 ):
     queryset = PollItem.objects.all()
-    serializer_class = PollSerializer
+    serializer_class = PollItemSerializer
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)

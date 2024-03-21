@@ -26,13 +26,16 @@ mecApp.controller("UserPollCtrl", function ($scope, pollFactory) {
     $scope.vote = function (item) {
         pollFactory.vote_for_item(item).then(getPoll).then(setPoll);
     };
+    $scope.print = function (text) {
+        console.log(text);
+    };
 });
 
 mecApp.factory("pollFactory", function ($http, $filter) {
     var baseUrl = "/api/v1/";
     var pollUrl = baseUrl + "polls/";
     var pollItemsUrl = baseUrl + "poll_items/";
-    var pollId = 0;
+    var pollId = 3;
     var pollFactory = {};
 
     pollFactory.getPoll = function () {

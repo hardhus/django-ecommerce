@@ -1,8 +1,7 @@
 {% if form.is_bound and not form.is_valid %}
-
-<div class="aler-message block-message error">
+<div class="alert-message block-message error">
     <div class="errors">
-        {% for field in form.visible_fiels %}
+        {% for field in form.visible_fields %}
         {% for error in field.errors %}
         <p>{{ field.label }}: {{ error }}</p>
         {% endfor %}
@@ -12,5 +11,4 @@
         {% endfor %}
     </div>
 </div>
-
 {% endif %}
