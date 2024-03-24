@@ -39,35 +39,35 @@ class ViewTesterMixin(object):
     #     self.assertEquals(resp.content[0:temp] + resp.content[temp + temp1:], self.expected_html[0:temp] + self.expected_html[temp + temp1:])
 
 
-class RegisterPageTests(TestCase, ViewTesterMixin):
+# class RegisterPageTests(TestCase, ViewTesterMixin):
 
-    @classmethod
-    def setUpClass(cls):
-        super(RegisterPageTests, cls).setUpClass()
-        # cls.cls_atomics = cls._enter_atomics()
-        # request_factory = RequestFactory().get("/register")
+#     @classmethod
+#     def setUpClass(cls):
+#         super(RegisterPageTests, cls).setUpClass()
+#         # cls.cls_atomics = cls._enter_atomics()
+#         # request_factory = RequestFactory().get("/register")
         
-        ViewTesterMixin.setupViewTester(
-            "/register/",
-            register,
-        )
+#         ViewTesterMixin.setupViewTester(
+#             "/register/",
+#             register,
+#         )
         
-        html = render(
-            cls.request,
-            'register.html',
-            {
-                'form': UserForm(),
-                'months': range(1, 12),
-                'user': None,
-                'years': range(2011, 2036),
-            }
-        )
-        ViewTesterMixin.set_expected_html(html.content)
+#         html = render(
+#             cls.request,
+#             'register.html',
+#             {
+#                 'form': UserForm(),
+#                 'months': range(1, 12),
+#                 'user': None,
+#                 'years': range(2011, 2036),
+#             }
+#         )
+#         ViewTesterMixin.set_expected_html(html.content)
     
 
-    def setUp(self):
-        request_factory = RequestFactory()
-        self.request = request_factory.get('/register')
+#     def setUp(self):
+#         request_factory = RequestFactory()
+#         self.request = request_factory.get('/register')
 
     # ŞEYMA
     # def test_invalid_form_returns_registration_page(self):
