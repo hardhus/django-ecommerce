@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect
+import json
+from django.http import HttpRequest
+from django.core.handlers.wsgi import WSGIRequest
+from django.http.response import HttpResponseBadRequest
+from django.shortcuts import HttpResponse, render, redirect
 from users.forms import SigninForm, UserForm
 from users.models import User
 from django.template import RequestContext
@@ -47,10 +51,24 @@ def sign_out(request):
         pass
     return redirect("/")
 
-def register(request):
+def is_ajax(request):
+    return request.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest"
+
+def register(request: WSGIRequest):
     user = None
     if request.method == "POST":
-        form = UserForm(request.POST)
+        # We only talk AJAX posts now
+        if is_ajax(request):
+            return HttpResponseBadRequest("I only speak AJAX nowadays")
+
+        data = json.loads(request.body.decode("utf-8"))
+        form_data = {
+            "name": data["name"]["$modelValue"],
+            "email": data["email"]["$modelValue"],
+            "password": data["password"]["$modelValue"],
+            "ver_password": data["ver_password"]["$modelValue"],
+        }
+        form = UserForm(form_data)
         if form.is_valid():
             try:
                 cd = form.cleaned_data
@@ -60,17 +78,27 @@ def register(request):
                     cd["password"],
                 )
             except IntegrityError:
-                print(form.cleaned_data)
-                form.addError(cd["email"] + " is already a member")
+                resp = json.dumps({
+                    "status": "fail",
+                    "errors": cd["email"] + " is already a member"
+                })
             else:
                 request.session["user"] = user.pk
-                return redirect("/")
+                resp = json.dumps({
+                    "status": "ok",
+                    "url": "/",
+                })
+            return HttpResponse(resp, content_type="application/json")
+        else: # form not valid
+            resp = json.dumps({
+                "status": "form-invalid",
+                "errors": form.errors,
+            })
+            print(form.errors)
+            return HttpResponse(resp, content_type="application/json")
     else:
         form = UserForm()
-    
-    
-    # TODO buradaki months ve years stripe olmadığından gereksiz mi acaba?
-    # evet gereksiz
+
     return render(
         request,
         "users/register.html",

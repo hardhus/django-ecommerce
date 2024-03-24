@@ -14,6 +14,7 @@
     <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- custom styles -->
     <link href="{% static 'css/mec.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     {% block extra_css %}
     {% endblock %}
@@ -31,19 +32,17 @@
     <!-- NAVBAR ========================================== -->
     <div class="navbar-wrapper">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top" style="height: 8rem;">
             <div class="container">
-                <header class="navbar-header">
-                    <a class="navbar-brand" href="{% url 'home' %}">Mos Eisley's Cantina</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </header>
+                <a class="navbar-brand " href="{% url 'home' %}">Mos Eisley's Cantina</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
@@ -54,7 +53,7 @@
                             <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto pull-right">
                         {% if user %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'sign_out' %}">Logout</a>
@@ -109,6 +108,7 @@
     <script src="{% static 'js/application.js' %}"></script>
     <script src="{% static 'js/userPollCtrl.js' %}"></script>
     <script src="{% static 'js/loggedInCtrl.js' %}"></script>
+    <script src="{% static 'js/registerCtrl.js' %}"></script>
     {% block extrajs %}
     {% endblock %}
 </body>

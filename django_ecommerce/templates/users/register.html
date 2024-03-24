@@ -10,30 +10,34 @@
 </div>
 <div class="row">
     <div class="span6 columns">
-        <form id="user_form" accept-charset="UTF-8" action="{% url 'register' %}" class="form-stacked" method="post">
-            {% csrf_token %}
-            {% if form.is_bound and not form.is_valid %}
-            <div class="alert alert-{{error.tags}}"> <a class="close" data-dismiss="alert">*</a>
-                <div class="erroes">
-                    {% for field in form.visible_fields %}
-                    {% for error in field.errors %}
-                    <p>{{ field.label }}: {{ error }}</p>
-                    {% endfor %}
-                    {% endfor %}
-                    {% for error in form.non_field_errors %}
-                    <p>{{ error }}</p>
-                    {% endfor %}
+        <section class="container" ng-controller="RegisterCtrl">
+            <form id="{{ form.form_name }}" name="{{ form.form_name }}" accept-charset="UTF-8" class="form-signin"
+                role="form" ng-submit="register()" novalidate>
+                {% csrf_token %}
+                {% if form.is_bound and not form.is_valid %}
+                <div class="alert alert-{{ error.tags }}"> <a class="close" data-dismiss="alert">*</a>
+                    <div class="erroes">
+                        {% for field in form.visible_fields %}
+                        {% for error in field.errors %}
+                        <p>{{ field.label }}: {{ error }}</p>
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-            {% endif %}
-            {% for field in form.visible_fields %}
-            {% include "users/_field.html" %}
-            {% endfor %}
-            <br>
-            <div class="actions">
-                <input class="btn primary" id="user_submit" name="commit" type="submit" value="Register">
-            </div>
-        </form>
+                {% endif %}
+                {% for field in form.visible_fields %}
+                {% include "users/_field.html" %}
+                {% endfor %}
+                <br>
+                <div class="actions">
+                    <input class="btn btn-primary" id="user_submit" name="commit" type="submit" value="Register"
+                        ng-disabled="{{ form.form_name }}.$pristine || {{ form.form_name }}.$invalid">
+                </div>
+            </form>
+        </section>
     </div>
 </div>
 
