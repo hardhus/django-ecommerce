@@ -8,6 +8,10 @@ import datetime
 
 
 # Create your views here.
+def soon():
+    soon = datetime.date.today() + datetime.timedelta(days=30)
+    return {"month": soon.month, "year": soon.year}
+
 def sign_in(request):
     user = None
     if request.method == "POST":
@@ -29,13 +33,12 @@ def sign_in(request):
 
     return render(
         request,
-        "sign_in.html",  # "sing_in.html" yerine "sign_in.html" kullanın
+        "users/sign_in.html",
         {
             "form": form,
             "user": user
         }
     )
-
 
 def sign_out(request):
     try:
@@ -70,12 +73,10 @@ def register(request):
     # evet gereksiz
     return render(
         request,
-        "register.html",
+        "users/register.html",
         {
             "form": form,
-            "months": range(1, 13),  # 1-12 arası ay sayıları
             "user": user,
-            "years": range(2011, 2036),  # 2011-2035 arası yıl sayıları
         }
     )
 
@@ -96,10 +97,9 @@ def edit(request):
 
     return render(
         request,
-        'edit.html',
+        'users/edit.html',
         {
             'form': form,
-            'months': range(1, 12),
-            'years': range(2011, 2036)
+            "user": user,
         },
     )
