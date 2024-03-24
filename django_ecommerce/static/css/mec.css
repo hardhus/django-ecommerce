@@ -32,7 +32,12 @@ h1,
 }
 
 .navbar-brand {
-    height: 40px;
+    font-size: 2em;
+}
+
+.nav-link {
+    font-size: 1.5em;
+    margin-left: 20px;
 }
 
 #darth_caption {
@@ -45,6 +50,7 @@ h1,
 /* Member Page */
 .info-box {
     border: 2px solid #000000;
+    border-radius: 15px;
     margin-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
@@ -61,7 +67,7 @@ h1,
 }
 .member-page {
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     background-color: white;
     margin-left: 0px;
     margin-right: 0px;
@@ -78,4 +84,14 @@ h1,
     margin: auto;
     min-width: 100%;
     min-height: 100px;
+}
+input.ng-dirty.ng-valid {
+    border: 1px solid Green;
+}
+input.ng-dirty.ng-invalid {
+    border: 1px solid Red;
+}
+.custom-error {
+    color: #ff0000;
+    font-family: sans-serif;
 }
