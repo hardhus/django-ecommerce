@@ -34,6 +34,3 @@ jobs:
             - name: Run Tests
               run: |
                   python django_ecommerce/manage.py test
-            - name: Fail on test failure
-              if: failure()
-              run: exit 1
